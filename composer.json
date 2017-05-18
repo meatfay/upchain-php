@@ -6,6 +6,7 @@
             "email": "meatfay@gmail.com"
         }
     ],
+    "minimum-stability": "beta",
     "require": {
         "php": ">=5.6.30"
     },
