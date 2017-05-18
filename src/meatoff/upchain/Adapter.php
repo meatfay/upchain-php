@@ -1,4 +1,4 @@
-<?php
+<?php namespace meatoff\upchain;
 /**
  * Created by PhpStorm.
  * User: meatoff
@@ -6,8 +6,10 @@
  * Time: 22:24
  */
 
-namespace meatoff\upchain;
-
+/**
+ * Interface Adapter for your own data transfer protocols
+ * @package meatoff\upchain
+ */
 
 interface Adapter {
     public function __construct(Service $service, array $options);

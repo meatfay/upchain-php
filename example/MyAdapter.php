@@ -1,17 +1,13 @@
-<?php namespace meatoff\upchain;
+<?php namespace Project;
 
-/**
- * Class HttpAdapter - example of Adapter implementation.
- * @package meatoff\upchain
- * @since PHP 7.0.1
- */
-class HttpAdapter implements Adapter
-{
+use meatoff\upchain\Adapter;
+use meatoff\upchain\Service;
 
+class MyAdapter implements Adapter {
     private $service;
     private $params;
 
-    public function __construct(Service $service, array $options = []) {
+    public function __construct(Service $service, array $options) {
         $this->service = $service;
 
         $postdata = file_get_contents("php://input");
@@ -25,7 +21,7 @@ class HttpAdapter implements Adapter
     }
 
     public function usePlugin($req, $res) {
-
+        // TODO: Implement usePlugin() method.
     }
 
     public function action($req) {
@@ -34,7 +30,7 @@ class HttpAdapter implements Adapter
         echo json_encode($req);
     }
 
-    public function serve(){
+    public function serve() {
         $this->action($this->params);
     }
 }

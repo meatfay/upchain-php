@@ -37,7 +37,7 @@ class Service
     public function listener(array $input, array $payload) : array {
         $lists = array_map(function($event) use ($input, $payload) {
             $inputProperty = isset($input[$event['property']]) ?? null;
-            $payloadProperty = $payload[$event['property']] ?? null;
+            $payloadProperty = isset($payload[$event['property']]) ?? null;
 
             if($inputProperty || $payloadProperty) {
                 return $this->useEvent($event['callback'], $input, $payload);
