@@ -1,0 +1,16 @@
+{
+    "name": "meatoff/upchain",
+    "authors": [
+        {
+            "name": "Павел Мясоедов",
+            "email": "meatfay@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4" : {
+            "meatoff\\upchain\\" : "src/"
+        }
+    }
+}
