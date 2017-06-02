@@ -11,6 +11,11 @@ class HttpAdapter implements Adapter
     private $service;
     private $params;
 
+    /**
+     * HttpAdapter constructor.
+     * @param Service $service
+     * @param array $options
+     */
     public function __construct(Service $service, array $options = []) {
         $this->service = $service;
 
@@ -28,13 +33,21 @@ class HttpAdapter implements Adapter
 
     }
 
+
     public function action($req) {
         $req['payload'] = $this->service->listener($req['input'], $req['payload']);
-        header('Content-Type: application/json');
-        echo json_encode($req);
+        return $req;
     }
 
+    public function response(array $result) {
+        header('Content-Type: application/json');
+        echo json_encode($result);
+    }
+
+    /**
+     * Run listening to take payloads from events.
+     */
     public function serve(){
-        $this->action($this->params);
+        $this->response($this->action($this->params));
     }
 }
